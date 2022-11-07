@@ -28,8 +28,9 @@ public class Heliox {
     }
 
     @Test
-    public void Draft() throws InterruptedException {
+    public void FB_SignUp() throws InterruptedException {
         fbSignUpPage = new FBSignUp(driver);
         fbSignUpPage.clickCreateAccount();
+        fbSignUpPage.fillSignUpForm();
     }
 }

@@ -2,6 +2,7 @@ package pom.facebook;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.api.RandomPerson;
 
 /**
  * @author Jorge A. López
@@ -11,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 public class FBSignUp {
     WebDriver driver;
     By btnCreateAccount = By.xpath("//a[@data-testid='open-registration-form-button']");
+    By firstNameField = By.xpath("//*[@name='firstname']");
+    By lastNameField = By.xpath("//*[@name='lastname']");
 
 
     public FBSignUp(WebDriver driver){
@@ -24,4 +27,11 @@ public class FBSignUp {
         driver.findElement(btnCreateAccount).click();
     }
 
+    public void fillSignUpForm(){
+        String[] names = RandomPerson.getRandomNames();
+
+        driver.findElement(firstNameField).sendKeys(names[0]);
+        driver.findElement(lastNameField).sendKeys(names[1]);
+
+    }
 }
